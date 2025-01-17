@@ -1,0 +1,397 @@
+:root {
+
+    --bg-dark: #181818;
+    --text-dark: #f0f0f0;
+    --nav-dark: #3a3a3a;
+    --link-dark: #ffffff;
+    --link-hover-dark: #575757;
+    --timeline-dot-dark: #f0f0f0;
+
+    --bg-light: #f4f4f4;
+    --text-light: #333;
+    --nav-light: #e0e0e0;
+    --link-light: #333;
+    --link-hover-light: #ddd;
+    --timeline-dot-light: #333;
+
+    --section-0-dark: #3a3a3a;
+    --section-1-dark: #444444;
+    --section-2-dark: #4e4e4e;
+    --section-3-dark: #585858;
+    --section-4-dark: #626262;
+    --section-5-dark: #6c6c6c;
+
+    --section-0-image: url("/Report/Presentation/img/code.jpg");
+    --section-1-image: url("/Report/Presentation/img/checklist.jpg");
+    --image-opacity: rgba(0, 0, 0, 0.65);
+
+    --section-0-light: #f9f9f9;
+    --section-1-light: #f3f3f3;
+    --section-2-light: #ededed;
+    --section-3-light: #e7e7e7;
+    --section-4-light: #e1e1e1;
+    --section-5-light: #dbdbdb;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/Report/Presentation/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/Report/Presentation/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/Report/Presentation/fonts/Poppins/Poppins-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    transition: background-color 0.3s, color 0.3s;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-dark);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: var(--link-dark);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: var(--link-hover-dark);
+    transition: transform 0.2s ease;
+}
+
+/*
+The fact that the mode toggle keeps its text color as white even in the Light Mode is a conscious design choice I decided on.
+There is not much other reason than humor :)
+*/
+nav .mode-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.text80 {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.section h2 {
+    margin: 0;
+}
+
+.mainIntro {
+    font-size: 3rem;
+    margin-top: 0;
+    color: var(--heading-dark);
+    text-align: center;
+}
+
+.mainList {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.3rem;
+    margin-top: 150px;
+
+}
+
+.introText {
+    font-size: 1.05rem;
+}
+
+.sizeUp {
+    font-size: 1.5rem;
+}
+
+.leftAlign {
+    text-align: left; 
+    display: block;
+}
+
+.timeline {
+    border-left: 3px solid var(--timeline-dot-dark);
+    margin: 20px auto;
+    padding-left: 20px;
+    position: relative;
+}
+
+.timeline-item {
+    margin: 40px 0;
+    padding-left: 20px;
+    position: relative;
+    transition: transform 0.5s ease;
+
+}
+
+.timeline-item::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: var(--timeline-dot-dark);
+    border-radius: 50%;
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-item:hover {
+    transform: translateX(5px);
+    transition: transform 0.5s ease;
+
+}
+
+.timeline-item p {
+    margin-bottom: 10px;
+}
+
+
+.timeline-item ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.timeline-item li {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+body.light-mode nav {
+    background-color: var(--nav-light);
+}
+
+body.light-mode nav a {
+    color: var(--link-light);
+}
+
+body.light-mode nav a:hover {
+    background-color: var(--link-hover-light);
+}
+
+body.light-mode .timeline-item::before {
+    background-color: var(--timeline-dot-light);
+}
+
+body.light-mode .timeline {
+    border-left: 3px solid var(--timeline-dot-light);
+}
+
+
+#section0 {
+    background-image: linear-gradient(var(--image-opacity), var(--image-opacity)),
+        var(--section-0-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#section1 {
+background-color: var(--section-1-dark);
+}
+
+#section2 {
+    background-color: var(--section-2-dark);
+}
+
+#section3 {
+    background-color: var(--section-3-dark);
+}
+
+#section4 {
+    background-color: var(--section-4-dark);
+}
+
+#section5 {
+    background-color: var(--section-5-dark);
+}
+
+
+body.light-mode #section0 {
+    background-color: var(--section-0-light);
+    color: var(--text-dark)
+}
+
+body.light-mode #section1 {
+    background-color: var(--section-1-light);
+}
+
+body.light-mode #section2 {
+    background-color: var(--section-2-light);
+}
+
+body.light-mode #section3 {
+    background-color: var(--section-3-light);
+}
+
+body.light-mode #section4 {
+    background-color: var(--section-4-light);
+}
+
+body.light-mode #section5 {
+    background-color: var(--section-5-light);
+}
+
+.links {
+    display: flex;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+    margin-right: 15px;
+    padding: 5px;
+}
+
+.links a:hover {
+    background-color: var(--link-hover-dark);
+}
+
+.mode-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.hamburger-menu .burger {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 3px;
+}
+
+body.light-mode .burger {
+    background-color: #000;
+}
+
+body.light-mode .links {
+    background-color: var(--nav-light);
+}
+
+.hamburger-menu.active+.links {
+    display: flex !important;
+}
+
+@media (max-width: 768px) {
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--nav-dark);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .links.active {
+        display: flex !important;
+    }
+
+    .links a {
+        padding: 12px;
+        text-align: left;
+        width: 100%;
+    }
+
+    .mode-toggle {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .separador {
+        display: none;
+    }
+
+    .text80 {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
